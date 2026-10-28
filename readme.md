@@ -35,7 +35,7 @@
   scout_mocker_http:
     image: scout55/mocker
     volumes:
-      - ./templates:/go/app/templates:ro
+      - ./templates:/app/templates:ro
     ports:
       - 8080:8080
 ```
