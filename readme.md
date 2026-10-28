@@ -30,14 +30,21 @@
     body: ...              # строка | объект | массив
 ```
 
-## Использование в своих проектах
+## Использование через Docker-compose
 ```yaml
   scout_mocker_http:
-    image: scout55/mocker:2.0.0
+    image: scout55/mocker
     volumes:
       - ./templates:/go/app/templates:ro
     ports:
       - 8080:8080
+```
+
+## Использование через Docker
+```bash
+docker run -p 8080:8080 \
+  -v "$(pwd)/templates:/app/templates:ro" \
+  --rm scout55/mocker
 ```
 
 
