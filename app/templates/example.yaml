@@ -1,0 +1,21 @@
+- method: GET
+  path: /users
+  response:
+    status: 200
+    headers:
+      X-Source: mock
+    body:
+      users:
+        - id: 1
+          name: Alice2
+
+- method: GET
+  path: /users/*
+  response:
+    body: '{"error":"single user"}'
+
+- method: POST
+  path: /echo
+  response:
+    status: 201
+    body: "created"

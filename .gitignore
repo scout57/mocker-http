@@ -1,0 +1,38 @@
+# Go build artifacts
+/app/tmp/
+/app/app.exe
+*.exe
+*.test
+*.out
+
+# Air
+.air.toml.local
+
+# Go workspace / vendor (раскомментируй, если не коммитишь)
+# go.work
+# go.work.sum
+# vendor/
+
+# IDE / редакторы
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+
+# Логи
+*.log
+
+# Docker (если собираешь локально)
+# (ничего не нужно — образы в docker daemon, не в репо)
+
+# Бинарники из multi-stage сборки, если кто-то собирает локально
+/app/out/
