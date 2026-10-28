@@ -33,7 +33,7 @@
 ## Использование в своих проектах
 ```yaml
   scout_mocker_http:
-    image: scout55/mocker
+    image: scout55/mocker:2.0.0
     volumes:
       - ./templates:/go/app/templates:ro
     ports:
