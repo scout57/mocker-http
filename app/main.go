@@ -165,9 +165,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("HTTP_PORT")
+	if port == "" {
+		port = "80"
+	}
+	addr := ":" + port
+
 	http.HandleFunc("/", handler)
-	slog.Info("starting mock server", "addr", ":8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	slog.Info("starting mock server", "addr", addr)
+	if err := http.ListenAndServe(addr, nil); err != nil {
 		slog.Error("server failed", "err", err)
 		os.Exit(1)
 	}

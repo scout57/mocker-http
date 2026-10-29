@@ -32,19 +32,26 @@ All `./templates/*.yaml` and `./templates/*.yml` files are merged. Each file is 
 ```yaml
   scout_mocker_http:
     image: scout55/mocker
+    environment:
+      - HTTP_PORT=80     # default
     volumes:
       - ./templates:/app/templates:ro
     ports:
-      - 8080:8080
+      - 8000:80
 ```
 
 ## Usage via Docker
 ```bash
-docker run -p 8080:8080 \
+docker run -p 8000:80 \
   -v "$(pwd)/templates:/app/templates:ro" \
   --rm scout55/mocker
 ```
-
+```bash
+docker run -p 80:8080 \
+  -e HTTP_PORT=8080 \
+  -v "$(pwd)/templates:/app/templates:ro" \
+  --rm scout55/mocker
+```
 ## Local development
 
 ```bash
